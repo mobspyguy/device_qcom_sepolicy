@@ -61,6 +61,8 @@ allow qca1530 self:capability {
 
 allow qca1530 self:capability2 syslog;
 allow qca1530 self:{ unix_dgram_socket packet_socket socket } create_socket_perms;
+allowxperm qca1530 self:socket ioctl msm_sock_ipc_ioctls;
+allowxperm qca1530 self:packet_socket ioctl msm_sock_ipc_ioctls;
 
 # Execute the shell or system commands.
 allow qca1530 { qca1530_exec shell_exec }:file rx_file_perms;
